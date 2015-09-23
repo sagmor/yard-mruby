@@ -3,27 +3,25 @@ module YARD::Handlers::C
 
     DEFAULT_NAMESPACES = {
       # 'mrb->top_self'      => '',
-      'mrb->object_class'  => 'Object',
-      'mrb->class_class'   => 'Class',
-      'mrb->module_class'  => 'Module',
-      'mrb->proc_class'    => 'Proc',
-      'mrb->string_class'  => 'String',
-      'mrb->array_class'   => 'Array',
-      'mrb->hash_class'    => 'Hash',
-      'mrb->float_class'   => 'Float',
-      'mrb->fixnum_class'  => 'Fixnum',
-      'mrb->true_class'    => 'TrueClass',
-      'mrb->false_class'   => 'FalseClass',
-      'mrb->nil_class'     => 'NilClass',
-      'mrb->symbol_class'  => 'Symbol',
-      'mrb->kernel_module' => 'Kernel'
+      'object_class'  => 'Object',
+      'class_class'   => 'Class',
+      'module_class'  => 'Module',
+      'proc_class'    => 'Proc',
+      'string_class'  => 'String',
+      'array_class'   => 'Array',
+      'hash_class'    => 'Hash',
+      'float_class'   => 'Float',
+      'fixnum_class'  => 'Fixnum',
+      'true_class'    => 'TrueClass',
+      'false_class'   => 'FalseClass',
+      'nil_class'     => 'NilClass',
+      'symbol_class'  => 'Symbol',
+      'kernel_module' => 'Kernel'
     }
 
     def namespace_for_variable(var)
-      return DEFAULT_NAMESPACES[var] if DEFAULT_NAMESPACES[var]
-      super
+      DEFAULT_NAMESPACES[ var[/^\w+->(\w+)$/, 1] ] || super
     end
-
 
     def handle_class(var_name, class_name, parent, stmt, in_module = nil)
       object = super(var_name, class_name, parent, in_module)
