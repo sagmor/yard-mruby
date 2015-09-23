@@ -1,7 +1,11 @@
 module YARD::Handlers::C
   class MRubyMethodHandler < MRubyBase
-    MATCH1 = /mrb_define_method\s*
-      \(
+    MATCH1 = /mrb_define_(
+        method |
+        singleton_method |
+        module_function
+      )
+      \s*\(
       \s*\w+\s*,
       \s*(\w+)\s*,
       \s*"(\w+)"\s*,
@@ -12,8 +16,8 @@ module YARD::Handlers::C
     statement_class BodyStatement
 
     process do
-      statement.source.scan(MATCH1) do |var_name, name, func_name|
-        handle_method(nil, var_name, name, func_name)
+      statement.source.scan(MATCH1) do |type,var_name, name, func_name|
+        handle_method(type, var_name, name, func_name)
       end
     end
 

@@ -8,5 +8,7 @@ module YARD::Handlers::C
       return DEFAULT_NAMESPACES[var] if DEFAULT_NAMESPACES[var]
       super
     end
+
+
   end
 end
