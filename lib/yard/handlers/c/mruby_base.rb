@@ -33,5 +33,15 @@ module YARD::Handlers::C
       object
     end
 
+    def handle_module(var_name, module_name, stmt, in_module = nil)
+      object = super(var_name, module_name, in_module)
+
+      if stmt.comments
+        register_docstring(object, stmt.comments.source, stmt)
+      end
+
+      object
+    end
+
   end
 end
