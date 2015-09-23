@@ -1,5 +1,5 @@
-module YARD::MRuby::Handlers::Source
-  class MethodHandler < Base
+module YARD::Handlers::C
+  class MRubyMethodHandler < MRubyBase
     MATCH1 = /mrb_define_method\s*
       \(
       \s*\w+\s*,
@@ -12,7 +12,6 @@ module YARD::MRuby::Handlers::Source
     statement_class BodyStatement
 
     process do
-      puts statement.inspect
       statement.source.scan(MATCH1) do |var_name, name, func_name|
         handle_method(nil, var_name, name, func_name)
       end

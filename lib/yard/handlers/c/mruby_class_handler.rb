@@ -1,7 +1,7 @@
-module YARD::MRuby::Handlers::Source
-  class ClassHandler < Base
+module YARD::Handlers::C
+  class MRubyClassHandler < MRubyBase
 
-    TOP_LEVEL_CLASS = /\*([\w]+)\s*=\s*mrb_define_class\s*
+    TOP_LEVEL_CLASS = /([\w]+)\s*=\s*mrb_define_class\s*
       \(
       \s*\w+\s*,
       \s*"(\w+)"\s*,
@@ -9,7 +9,7 @@ module YARD::MRuby::Handlers::Source
       \)
     /mx
 
-    NAMESPACED_CLASS = /\*([\w]+)\s*=\s*mrb_define_class_under\s*
+    NAMESPACED_CLASS = /([\w]+)\s*=\s*mrb_define_class_under\s*
       \(
       \s*\w+\s*,
       \s*(\w+)\s*,
