@@ -5,7 +5,7 @@ require 'yard/mruby/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "yard-mruby"
-  spec.version       = Yard::Mruby::VERSION
+  spec.version       = YARD::MRuby::VERSION
   spec.authors       = ["Seba Gamboa"]
   spec.email         = ["me@sagmor.com"]
 

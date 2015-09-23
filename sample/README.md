@@ -1,4 +1,4 @@
-# sample
+# Sample MRuby GEM
 
 TODO: Write your README
 

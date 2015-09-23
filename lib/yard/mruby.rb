@@ -1,7 +1,3 @@
-require "yard/mruby/version"
-
-module Yard
-  module Mruby
-    # Your code goes here...
-  end
-end
+require_relative "mruby/version"
+require_relative "mruby/code_objects"
+require_relative "mruby/handlers"

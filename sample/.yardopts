@@ -1,1 +1,3 @@
-mrblib/**/*.rb - README.md LICENSE.txt
+--plugin mruby
+mrblib/**/*.rb
+src/**/*.c
