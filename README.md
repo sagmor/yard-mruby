@@ -1,7 +1,10 @@
 # yard-mruby
 
+[![Gem](https://img.shields.io/gem/v/yard-mruby.svg)](https://rubygems.org/gems/yard-mruby)
+[![Travis](https://img.shields.io/travis/sagmor/yard-mruby.svg)](https://travis-ci.org/sagmor/yard-mruby)
+
 This is a plugin that allows YARD to parse and generate documentation for MRuby sources.
-It handles the different C API 
+It handles the different C API
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/yard/mruby`. To experiment with that code, run `bin/console` for an interactive prompt.
 
