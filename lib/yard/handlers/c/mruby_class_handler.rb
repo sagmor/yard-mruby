@@ -25,10 +25,10 @@ module YARD::Handlers::C
 
     process do
       statement.source.scan(TOP_LEVEL_CLASS) do |var_name, class_name, parent|
-        handle_class(var_name, class_name, parent)
+        handle_class(var_name, class_name, parent, statement)
       end
       statement.source.scan(NAMESPACED_CLASS) do |var_name, in_module, class_name, parent|
-        handle_class(var_name, class_name, parent, in_module)
+        handle_class(var_name, class_name, parent, statement, in_module)
       end
     end
   end

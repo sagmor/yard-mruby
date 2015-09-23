@@ -24,5 +24,16 @@ module YARD::Handlers::C
       super
     end
 
+
+    def handle_class(var_name, class_name, parent, stmt, in_module = nil)
+      object = super(var_name, class_name, parent, in_module)
+
+      if stmt.comments
+        register_docstring(object, stmt.comments.source, stmt)
+      end
+
+      object
+    end
+
   end
 end

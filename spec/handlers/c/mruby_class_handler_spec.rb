@@ -29,4 +29,13 @@ describe YARD::Handlers::C::MRubyClassHandler do
     expect(Registry.at('Bar').superclass).to eq Registry.at('Foo')
   end
 
+  it "should associate declaration comments as class docstring" do
+    parse_init(<<-eof)
+      /* Docstring! */
+      cFoo = mrb_define_class(mrb, "Foo", mrb->object_class);
+    eof
+
+    expect(Registry.at('Foo').docstring).not_to be_blank
+  end
+
 end
