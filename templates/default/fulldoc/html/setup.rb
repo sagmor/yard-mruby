@@ -1,7 +1,7 @@
 def init
   super
 
-   YARD::MRuby::CodeObjects::INCLUDE_DIRECTORY.tap do |root|
+   YARD::MRuby::CodeObjects::HEADERS_ROOT.tap do |root|
 
      # Generates the requirements splash page with the 'include' template
      serialize root
@@ -49,7 +49,7 @@ end
 def class_list(root = Registry.root)
   return super unless root == Registry.root
 
-  include_namespace = YARD::MRuby::CodeObjects::INCLUDE_DIRECTORY
+  include_namespace = YARD::MRuby::CodeObjects::HEADERS_ROOT
   root.instance_eval { children.delete include_namespace }
   out = super(root)
   root.instance_eval { children.push include_namespace }
