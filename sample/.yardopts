@@ -1,3 +1,4 @@
 --plugin mruby
 mrblib/**/*.rb
 src/**/*.c
+include/**/*.h
