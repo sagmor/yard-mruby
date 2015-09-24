@@ -8,7 +8,7 @@ module YARD::MRuby::Handlers
         path = path.gsub(/^.*include\//,'')
 
         headers[path] ||= begin
-                            header = HeaderObject.new(:root, path)
+                            header = HeaderObject.new(INCLUDE_DIRECTORY, path)
                             register header
                             header
                           end
