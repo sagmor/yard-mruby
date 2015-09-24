@@ -45,6 +45,7 @@ module YARD::MRuby::Handlers
       end
 
     end
+
   end
 
   YARD::Handlers::Processor.register_handler_namespace :C, C
