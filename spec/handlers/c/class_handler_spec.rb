@@ -1,6 +1,6 @@
 require_relative 'spec_helper'
 
-describe YARD::Handlers::C::MRubyClassHandler do
+describe YARD::MRuby::Handlers::C::ClassHandler do
   it "should register classes" do
     parse_init 'cFoo = mrb_define_class(mrb, "Foo", mrb->object_class);'
 

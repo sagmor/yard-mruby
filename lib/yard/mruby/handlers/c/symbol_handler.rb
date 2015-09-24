@@ -1,6 +1,7 @@
-module YARD::Handlers::C
+module YARD::MRuby::Handlers::C
   # Keeps track of function bodies for symbol lookup during MRuby method declarations
-  class MRubySymbolHandler < MRubyBase
+  class SymbolHandler < Base
+
     MATCH = /
       mrb_value\s*(\w+)\s*\(\s*mrb_state\s*\*\s*\w+,\s*mrb_value\s*\w+\s*\)
     /mx

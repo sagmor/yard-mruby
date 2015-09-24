@@ -1,5 +1,5 @@
-module YARD::Handlers::C
-  class MRubyClassHandler < MRubyBase
+module YARD::MRuby::Handlers::C
+  class ClassHandler < Base
 
     TOP_LEVEL_CLASS = /([\w]+)\s*=\s*mrb_define_class\s*
       \(

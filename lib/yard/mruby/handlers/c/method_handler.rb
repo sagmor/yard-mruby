@@ -1,5 +1,5 @@
-module YARD::Handlers::C
-  class MRubyMethodHandler < MRubyBase
+module YARD::MRuby::Handlers::C
+  class MethodHandler < Base
     MATCH1 = /mrb_define_(
         method |
         singleton_method |
