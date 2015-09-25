@@ -15,7 +15,7 @@ end
 
 def generate_header_list
   headers = Registry.all(:header)
-  headers_ordered_by_name = headers.sort {|x,y| x.value.to_s <=> y.value.to_s }
+  headers_ordered_by_name = headers.sort {|x,y| x.name.to_s <=> y.name.to_s }
   generate_full_list headers_ordered_by_name, :headers
 end
 
