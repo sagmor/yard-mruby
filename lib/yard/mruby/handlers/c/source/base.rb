@@ -18,7 +18,9 @@ module YARD::MRuby::Handlers
           'false_class'   => 'FalseClass',
           'nil_class'     => 'NilClass',
           'symbol_class'  => 'Symbol',
-          'kernel_module' => 'Kernel'
+          'kernel_module' => 'Kernel',
+          'eException_class' => 'Exception',
+          'eStandardError_class' => 'StandardError'
         }
 
         def namespace_for_variable(var)
