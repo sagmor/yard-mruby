@@ -30,12 +30,23 @@ end
 #       menus: [ 'features', 'directories', 'tags', 'step definitions', 'steps' ]
 #
 def menu_lists
+  menus = super
+  last = menus.pop
 
-  [ {
+  menus.push({
     type: 'header',
-    title: 'C API',
-    search_title: 'C API'
-  } ] + super
+    title: 'Headers',
+    search_title: 'Header List'
+  })
 
+  menus.push({
+    type: 'function',
+    title: 'Functions',
+    search_title: 'Function List'
+  })
+
+  menus.push last
+
+  menus
 end
 

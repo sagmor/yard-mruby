@@ -1,1 +1,6 @@
-<h1>All headers</h1>
+<h2>All headers</h2>
+<p class="children">
+  <% headers.each do |header| %>
+    <%= linkify(header, header.name(true)) %>
+  <% end %>
+</p>

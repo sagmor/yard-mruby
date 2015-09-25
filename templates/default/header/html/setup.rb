@@ -1,10 +1,15 @@
 def init
-  puts "header!"
-  puts object.inspect
   super
 
   sections.push :header
-  sections.push :functions
-rescue => error
-  puts error
+  sections.push :function_summary
 end
+
+
+def function_listing
+  return @funcs if @funcs
+
+  @funcs = object.functions
+  @funcs
+end
+

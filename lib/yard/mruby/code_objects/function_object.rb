@@ -6,6 +6,10 @@ module YARD::MRuby::CodeObjects
       super
     end
 
+    def header
+      self.namespace
+    end
+
     # Function's shouln't be namespaced
     def path
       self.name
