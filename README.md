@@ -12,15 +12,7 @@ Install with rubygems
 
     $ gem install yard-mruby
 
-Configure your project's `.yardopts`
-
-```
---plugin mruby
-mrblib/**/*.rb
-src/**/*.c
-```
-
-And execute `yardoc` to generate the docs
+And execute `mrbdoc` to generate the docs
 
 ## Development
 
