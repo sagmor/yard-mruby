@@ -1,6 +1,6 @@
 require_relative 'spec_helper'
 
-describe YARD::MRuby::Handlers::C::MethodHandler  do
+describe YARD::MRuby::Handlers::C::Source::MethodHandler  do
   it "should register methods" do
     parse_init <<-eof
       mFoo = mrb_define_module(mrb, "Foo");

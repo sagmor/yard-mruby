@@ -1,4 +1,4 @@
-module YARD::MRuby::Handlers::C
+module YARD::MRuby::Handlers::C::Source
   class MethodHandler < Base
     MATCH1 = /mrb_define_(
         method |

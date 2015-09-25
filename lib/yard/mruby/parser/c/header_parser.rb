@@ -1,6 +1,5 @@
-
-module YARD::MRuby::Parser
-  class HeaderParser < YARD::Parser::C::CParser
+module YARD::MRuby::Parser::C
+  class HeaderParser < Parser
   end
 
   #

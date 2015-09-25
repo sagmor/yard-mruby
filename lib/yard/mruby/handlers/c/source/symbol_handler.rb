@@ -1,4 +1,4 @@
-module YARD::MRuby::Handlers::C
+module YARD::MRuby::Handlers::C::Source
   # Keeps track of function bodies for symbol lookup during MRuby method declarations
   class SymbolHandler < Base
 

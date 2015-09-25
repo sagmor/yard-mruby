@@ -1,6 +1,6 @@
 require_relative 'spec_helper'
 
-describe YARD::MRuby::Handlers::C::ModuleHandler do
+describe YARD::MRuby::Handlers::C::Source::ModuleHandler do
   it "should register modules" do
     parse_init 'mFoo = mrb_define_module(mrb, "Foo");'
     expect(Registry.at('Foo').type).to be :module

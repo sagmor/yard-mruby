@@ -1,4 +1,4 @@
-module YARD::MRuby::Handlers::C
+module YARD::MRuby::Handlers::C::Source
   class ModuleHandler < Base
 
     TOP_LEVEL_MODULE = /([\w]+)\s*=\s*mrb_define_module\s*
