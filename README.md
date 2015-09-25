@@ -3,8 +3,7 @@
 [![Gem](https://img.shields.io/gem/v/yard-mruby.svg)](https://rubygems.org/gems/yard-mruby)
 [![Travis](https://img.shields.io/travis/sagmor/yard-mruby.svg)](https://travis-ci.org/sagmor/yard-mruby)
 
-This is a plugin that allows YARD to parse and generate documentation for MRuby sources.
-It handles the different C API
+This is a plugin that allows YARD to parse and generate documentation for MRuby sources as well as documenting it's C APIs.
 
 ## Usage
 
