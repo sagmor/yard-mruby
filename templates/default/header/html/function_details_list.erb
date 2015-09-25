@@ -1,0 +1,7 @@
+<div id="functions_details" class="method_details_list">
+  <h2>Function Details</h2>
+
+  <% function_listing.each_with_index do |func, i| %>
+    <%= yieldall :object => func, :owner => object, :index => i %>
+  <% end %>
+</div>

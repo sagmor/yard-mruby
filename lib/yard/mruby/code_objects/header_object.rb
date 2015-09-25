@@ -14,5 +14,9 @@ module YARD::MRuby::CodeObjects
     def title
       super.to_s
     end
+
+    def inheritance_tree(*args)
+      return [self]
+    end
   end
 end

@@ -1,6 +1,12 @@
-<ul class="summary">
+<% if function_listing.size > 0 %>
+  <h2>
+    Function Summary
+    <small><a href="#" class="summary_toggle">collapse</a></small>
+  </h2>
 
-  <% function_listing.each do |func| %>
-    <%= yieldall :item => func %>
-  <% end %>
-</ul>
+  <ul class="summary">
+    <% function_listing.each do |func| %>
+      <%= yieldall :item => func %>
+    <% end %>
+  </ul>
+<% end %>

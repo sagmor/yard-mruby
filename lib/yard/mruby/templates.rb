@@ -1,3 +1,5 @@
+require_relative 'templates/helpers'
+
 YARD::MRuby::TEMPLATES_PATH = File.expand_path('../../../../templates', __FILE__)
 
 # This registered template works for yardoc
