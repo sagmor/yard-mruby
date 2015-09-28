@@ -20,6 +20,5 @@ def define_listing
   return @defines if @defines
 
   @defines = object.defines
-  puts @defines.inspect
   @defines
 end
