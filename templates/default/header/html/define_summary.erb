@@ -1,0 +1,11 @@
+<% if define_listing.size > 0 %>
+  <h2>Define Summary</h2>
+  <dl class="constants">
+    <% define_listing.each do |define| %>
+      <dt id="<%= anchor_for(define) %>" class="<%= define.has_tag?(:deprecated) ? 'deprecated' : '' %>"><small>#define</small> <%= define.name %>
+        <%= yieldall :object => define %>
+      </dt>
+      <dd><pre class="code"><%#= format_constant define.value %></pre></dd>
+    <% end %>
+  </dl>
+<% end %>

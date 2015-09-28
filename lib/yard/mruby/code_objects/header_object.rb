@@ -7,6 +7,10 @@ module YARD::MRuby::CodeObjects
       children.find_all {|d| d.is_a?(FunctionObject) } 
     end
 
+    def defines
+      children.find_all {|d| d.is_a?(DefineObject) } 
+    end
+
     def path
       self.name
     end
