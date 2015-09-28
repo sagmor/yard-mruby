@@ -1,7 +1,7 @@
 module YARD::MRuby::Handlers::C::Header
   class HeaderDeclHandler < Base
     MATCH = /
-      ^MRB_BEGIN_DECL
+      MRB_BEGIN_DECL
     /mx
 
     handles MATCH
