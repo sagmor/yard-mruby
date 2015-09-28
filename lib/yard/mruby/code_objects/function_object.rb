@@ -20,7 +20,7 @@ module YARD::MRuby::CodeObjects
 
     # Function's shouln't be namespaced
     def path
-      self.name
+      self.name.to_s
     end
 
     def attr_info
