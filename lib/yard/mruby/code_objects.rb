@@ -1,4 +1,5 @@
 require_relative 'code_objects/headers_root'
+require_relative 'code_objects/header_base_object'
 require_relative 'code_objects/header_object'
 require_relative 'code_objects/function_object'
 require_relative 'code_objects/define_object'

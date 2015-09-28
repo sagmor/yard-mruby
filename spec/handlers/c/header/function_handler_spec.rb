@@ -6,8 +6,6 @@ describe YARD::MRuby::Handlers::C::Header::FunctionHandler do
       MRB_API void mrb_foo( void );
     eof
     expect(Registry.at('mrb_foo')).not_to be_nil
-
-    # puts Registry.send(:thread_local_store).inspect
   end
 
   it "should find docstrings attached to functions" do

@@ -1,7 +1,7 @@
 module YARD::MRuby::CodeObjects
 
   # A FunctionObject represents a MRuby C API function declaration inside a header inside an include directory
-  class FunctionObject < YARD::CodeObjects::Base
+  class FunctionObject < HeaderBaseObject
 
     # Returns the list of parameters parsed out of the method signature
     # with their default values.
@@ -12,15 +12,6 @@ module YARD::MRuby::CodeObjects
 
     def initialize(header, name, &block)
       super
-    end
-
-    def header
-      self.namespace
-    end
-
-    # Function's shouln't be namespaced
-    def path
-      self.name.to_s
     end
 
     def attr_info
