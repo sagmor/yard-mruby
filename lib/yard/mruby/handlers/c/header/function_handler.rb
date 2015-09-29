@@ -3,9 +3,9 @@ module YARD::MRuby::Handlers::C::Header
     MATCH = /
       MRB_(API|INLINE)\s+
       ((struct\s+)?\w+(\s*\*)?)\s*
-      ((\w+\s+)+)?(\w+)\s*\(
+      ((\w+\s+)+)?(\w+)\s*
+      \(([\w\s\*,])*\)
     /mx
-      #\(([\w\*,]*)\)
 
     handles MATCH
     statement_class ToplevelStatement
@@ -25,10 +25,7 @@ module YARD::MRuby::Handlers::C::Header
             register_docstring(obj, statement.comments.source, statement)
           end
 
-          if retype != 'void'
-            obj.add_tag(YARD::Tags::Tag.new(:return,"", "")) unless obj.has_tag?(:return)
-            obj.tag(:return).types = [retype] 
-          end
+          obj.return_type = retype
 
         end
       end

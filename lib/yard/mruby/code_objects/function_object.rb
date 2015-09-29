@@ -22,6 +22,17 @@ module YARD::MRuby::CodeObjects
       ''
     end
 
+    def return_type
+      obj.tag(:return).types.first
+    end
+
+    def return_type=(type)
+      return if type == 'void'
+      add_tag(YARD::Tags::Tag.new(:return,"", "")) unless has_tag?(:return)
+      tag(:return).types = [type]
+    end
+
+
     # Returns all alias names of the object
     # @return [Array<Symbol>] the alias names
     def aliases
