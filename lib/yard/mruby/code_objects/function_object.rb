@@ -40,7 +40,7 @@ module YARD::MRuby::CodeObjects
       return if parameters.match /^\s*void\s*$/
 
       parameters.split(',').each do |parameter|
-        parameter.scan(/((:?struct\s+)?\w+(:?\s*\*)?)\s*(\w+)?/) do |type,_,_,name|
+        parameter.scan(/((?:const\s+)?(?:struct\s+)?\w+(?:\s*\*)?)\s*(\w+)?/) do |type,name|
           @parameter_types << ParameterType.new(type,name)
         end
       end
