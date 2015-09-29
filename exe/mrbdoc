@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'yard-mruby'
+require_relative '../lib/yard/mruby'
 
 YARD::CLI::Yardoc.run(*ARGV)
