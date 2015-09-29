@@ -31,6 +31,15 @@ module YARD::MRuby::CodeObjects
       @return_type = (type == 'void' ? nil : type)
     end
 
+    # Returns the list of parameters parsed out of the method signature
+    # with their default values.
+    #
+    # @return [Array<Array(String, String)>] a list of parameter names followed
+    #   by their default values (or nil)
+    def parameters
+      parameter_types.map{|t| [t.name, nil] }
+    end
+
     def parameter_types
       @parameter_types || []
     end
