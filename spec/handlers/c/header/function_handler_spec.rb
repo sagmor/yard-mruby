@@ -1,11 +1,12 @@
 require_relative 'spec_helper'
 
 describe YARD::MRuby::Handlers::C::Header::FunctionHandler do
+  subject{ Registry.at('mrb_foo') }
   it "should register functions" do
     header_line <<-eof
       MRB_API void mrb_foo( void );
     eof
-    expect(Registry.at('mrb_foo')).not_to be_nil
+    expect(subject).not_to be_nil
   end
 
   it "should find docstrings attached to functions" do
@@ -14,8 +15,7 @@ describe YARD::MRuby::Handlers::C::Header::FunctionHandler do
       MRB_API void mrb_foo( void );
     eof
 
-    foo = Registry.at('mrb_foo')
-    expect(foo.docstring).to eq 'DOCSTRING'
+    expect(subject.docstring).to eq 'DOCSTRING'
   end
 
   it "should store the return type" do
@@ -23,8 +23,7 @@ describe YARD::MRuby::Handlers::C::Header::FunctionHandler do
       MRB_API mrb_value mrb_foo( void );
     eof
 
-    foo = Registry.at('mrb_foo')
-    expect(foo.tag(:return).types).to eq ['mrb_value']
+    expect(subject.tag(:return).types).to eq ['mrb_value']
   end
 
   it "should keep return type independently from docs" do
@@ -35,8 +34,8 @@ describe YARD::MRuby::Handlers::C::Header::FunctionHandler do
       MRB_API mrb_value mrb_foo( void );
     eof
 
-    foo = Registry.at('mrb_foo')
-    expect(foo.tag(:return).text).to eq 'DOCSTRING'
-    expect(foo.tag(:return).types).to eq ['mrb_value']
+    expect(subject.tag(:return).text).to eq 'DOCSTRING'
+    expect(subject.tag(:return).types).to eq ['mrb_value']
   end
+
 end
