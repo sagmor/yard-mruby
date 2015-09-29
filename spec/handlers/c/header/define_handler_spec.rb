@@ -6,7 +6,6 @@ describe YARD::MRuby::Handlers::C::Header::DefineHandler do
       # define MRB_FOO bar
     eof
 
-    puts Registry.send(:thread_local_store).inspect
     expect(Registry.at('MRB_FOO')).not_to be_nil
   end
 
