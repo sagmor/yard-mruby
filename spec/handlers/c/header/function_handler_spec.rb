@@ -23,19 +23,16 @@ describe YARD::MRuby::Handlers::C::Header::FunctionHandler do
       MRB_API mrb_value mrb_foo( void );
     eof
 
-    expect(subject.tag(:return).types).to eq ['mrb_value']
+    expect(subject.return_type).to eq 'mrb_value'
   end
 
-  it "should keep return type independently from docs" do
+  it "should store argument types" do
     header_line <<-eof
-      /**
-       * @return DOCSTRING
-       */
-      MRB_API mrb_value mrb_foo( void );
+      MRB_API mrb_value mrb_foo( mrb_state *mrb, mrb_value bar );
     eof
 
-    expect(subject.tag(:return).text).to eq 'DOCSTRING'
-    expect(subject.tag(:return).types).to eq ['mrb_value']
+    expect(subject.parameter_types.first.type).to eq 'mrb_state *'
+    expect(subject.parameter_types.last.type).to eq 'mrb_value'
+    expect(subject.parameter_types.last.name).to eq 'bar'
   end
-
 end

@@ -4,7 +4,7 @@ module YARD::MRuby::Handlers::C::Header
       MRB_(API|INLINE)\s+
       ((struct\s+)?\w+(\s*\*)?)\s*
       ((\w+\s+)+)?(\w+)\s*
-      \(([\w\s\*,])*\)
+      \(([\w\s\*,]*)\)
     /mx
 
     handles MATCH
@@ -17,15 +17,14 @@ module YARD::MRuby::Handlers::C::Header
     def handle_function(statement)
       header = self.header(statement.file)
 
-["API", "mrb_value", nil, nil, nil, nil, "sample_api_method"]
-      statement.source.scan(MATCH) do |type, retype, _,_,_,_, name, *args|
-        puts args.inspect
+      statement.source.scan(MATCH) do |type, retype, _,_,_,_, name, parameters|
         register FunctionObject.new(header, name) do |obj|
           if statement.comments
             register_docstring(obj, statement.comments.source, statement)
           end
 
           obj.return_type = retype
+          obj.parse_parameter_types(parameters)
 
         end
       end

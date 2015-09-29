@@ -2,6 +2,7 @@ module YARD::MRuby::CodeObjects
 
   # A FunctionObject represents a MRuby C API function declaration inside a header inside an include directory
   class FunctionObject < HeaderBaseObject
+    ParameterType = Struct.new(:type,:name)
 
     # Returns the list of parameters parsed out of the method signature
     # with their default values.
@@ -23,13 +24,27 @@ module YARD::MRuby::CodeObjects
     end
 
     def return_type
-      obj.tag(:return).types.first
+      @return_type
     end
 
     def return_type=(type)
-      return if type == 'void'
-      add_tag(YARD::Tags::Tag.new(:return,"", "")) unless has_tag?(:return)
-      tag(:return).types = [type]
+      @return_type = (type == 'void' ? nil : type)
+    end
+
+    def parameter_types
+      @parameter_types || []
+    end
+
+    def parse_parameter_types(parameters)
+      @parameter_types = []
+      return if parameters.match /^\s*void\s*$/
+
+      parameters.split(',').each do |parameter|
+        parameter.scan(/((:?struct\s+)?\w+(:?\s*\*)?)\s*(\w+)?/) do |type,_,_,name|
+          @parameter_types << ParameterType.new(type,name)
+        end
+      end
+
     end
 
 
