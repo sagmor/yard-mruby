@@ -5,11 +5,13 @@ module YARD::MRuby::Templates
 
       def fsignature(func, link = true, show_extras = true)
         name = func.name
-        title = "<strong>%s</strong>" % [h(name)]
+        prefix = 'void'
+        params = 'void'
+        title = "%s <strong>%s</strong>( %s )" % [h(prefix), h(name), h(params)]
 
         if link
           url = url_for(func)
-          link_url(url, title, :title => title)
+          link_url(url, title, :title => name)
         else
           title
         end
