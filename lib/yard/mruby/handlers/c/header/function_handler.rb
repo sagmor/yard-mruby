@@ -4,7 +4,7 @@ module YARD::MRuby::Handlers::C::Header
       MRB_(API|INLINE)\s+
       ((struct\s+)?\w+(\s*\*)?)\s*
       ((\w+\s+)+)?(\w+)\s*
-      \(([\w\s\*,]*)\)
+      \(([\w\s\*,\.]*)\)
     /mx
 
     handles MATCH

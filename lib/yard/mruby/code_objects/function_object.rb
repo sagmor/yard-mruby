@@ -37,7 +37,7 @@ module YARD::MRuby::CodeObjects
     # @return [Array<Array(String, String)>] a list of parameter names followed
     #   by their default values (or nil)
     def parameters
-      parameter_types.map{|t| [t.name, nil] }
+      parameter_types.map{|t| [(t.type == '...' ? '...' : t.name), nil] }
     end
 
     def parameter_types
@@ -49,7 +49,7 @@ module YARD::MRuby::CodeObjects
       return if parameters.match /^\s*void\s*$/
 
       parameters.split(',').each do |parameter|
-        parameter.scan(/((?:const\s+)?(?:struct\s+)?\w+(?:\s*\*)?)\s*(\w+)?/) do |type,name|
+        parameter.scan(/((?:const\s+)?(?:struct\s+)?(?:\w+|\.\.\.)(?:\s*\*)?)\s*(\w+)?/) do |type,name|
           @parameter_types << ParameterType.new(type,name)
         end
       end
