@@ -5,6 +5,8 @@
 
 This is a plugin that allows YARD to parse and generate documentation for MRuby sources as well as documenting it's C APIs.
 
+It still has it's [rough edges and missing features](https://github.com/sagmor/yard-mruby/issues) but you can see a [sample from it's current state when executed on MRuby's core here](https://sagmor.com/mruby/)
+
 ## Usage
 
 Install with rubygems
