@@ -1,5 +1,8 @@
 def init
   super
+
+  sections << :iso
+  sections << :mrbgem
 end
 
 def param
