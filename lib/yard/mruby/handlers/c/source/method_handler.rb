@@ -8,7 +8,7 @@ module YARD::MRuby::Handlers::C::Source
       \s*\(
       \s*\w+\s*,
       \s*(\w+)\s*,
-      \s*"(\w+)"\s*,
+      \s*"([^"]+)"\s*,
       \s*(\w+)\s*,
     /mx
 
