@@ -5,6 +5,7 @@ def init
   sections :header, :pre_docstring, T('docstring'), :includes,
     :function_summary, [:item_summary],
     :define_summary, [T('docstring')],
+    :typedef_summary, [T('docstring')],
     :function_details_list, [T('function_details')]
 end
 
@@ -21,4 +22,11 @@ def define_listing
 
   @defines = object.defines
   @defines
+end
+
+def typedef_listing
+  return @typedefs if @typedefs
+
+  @typedefs = object.typedefs
+  @typedefs
 end
