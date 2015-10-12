@@ -7,6 +7,6 @@ describe YARD::CLI::Yardoc do
   end
 
   it "should use mrblib/**/*.rb src/**/*.c include/**/*.h as default file glob" do
-    expect(@yardoc.files).to eq %w{mrblib/**/*.rb src/**/*.c include/**/*.h}
+    expect(@yardoc.files).to match_array(%w{mrblib/**/*.rb src/**/*.c include/**/*.h})
   end
 end
