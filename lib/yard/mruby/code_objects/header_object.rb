@@ -11,6 +11,10 @@ module YARD::MRuby::CodeObjects
       children.find_all {|d| d.is_a?(DefineObject) } 
     end
 
+    def typedefs
+      children.find_all {|d| d.is_a?(TypedefObject) }
+    end
+
     def path
       self.name
     end

@@ -1,0 +1,11 @@
+<% if typedef_listing.size > 0 %>
+  <h2>Typedef Summary</h2>
+  <dl class="constants">
+    <% typedef_listing.each do |typedef| %>
+      <dt id="<%= anchor_for(typedef) %>" class="<%= typedef.has_tag?(:deprecated) ? 'deprecated' : '' %>"><small>typedef</small> <%= typedef.name %>
+        <%= yieldall :object => typedef %>
+      </dt>
+      <dd><pre class="code"><%#= format_constant typedef.value %></pre></dd>
+    <% end %>
+  </dl>
+<% end %>
