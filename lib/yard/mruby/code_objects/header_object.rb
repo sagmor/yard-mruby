@@ -4,11 +4,11 @@ module YARD::MRuby::CodeObjects
   # It groups C Functions and define macros.
   class HeaderObject < YARD::CodeObjects::NamespaceObject
     def functions
-      children.find_all {|d| d.is_a?(FunctionObject) } 
+      children.find_all {|d| d.is_a?(FunctionObject) }
     end
 
     def defines
-      children.find_all {|d| d.is_a?(DefineObject) } 
+      children.find_all {|d| d.is_a?(DefineObject) }
     end
 
     def typedefs
@@ -16,7 +16,7 @@ module YARD::MRuby::CodeObjects
     end
 
     def path
-      self.name
+      self.name.to_s
     end
 
     def title

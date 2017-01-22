@@ -51,7 +51,7 @@ end
 # This method removes the namespace from the root node, generates the class list,
 # and then adds it back into the root node.
 #
-def class_list(root = Registry.root)
+def class_list(root = Registry.root, tree = TreeContext.new)
   return super unless root == Registry.root
 
   include_namespace = YARD::MRuby::CodeObjects::HEADERS_ROOT
