@@ -56,7 +56,7 @@ def class_list(root = Registry.root, tree = TreeContext.new)
 
   include_namespace = YARD::MRuby::CodeObjects::HEADERS_ROOT
   root.instance_eval { children.delete include_namespace }
-  out = super(root)
+  out = super(root, tree)
   root.instance_eval { children.push include_namespace }
   out
 end
