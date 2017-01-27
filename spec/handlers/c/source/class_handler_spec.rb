@@ -8,7 +8,11 @@ describe YARD::MRuby::Handlers::C::Source::ClassHandler do
   end
 
   it "should register classes under namespaces" do
-    parse_init 'cFoo = mrb_define_class_under(mrb, cBar, "Foo", rb_cObject);'
+    parse_init(<<-eof)
+      cBar = mrb_define_class(mrb, "Bar", mrb->object_class);
+      cFoo = mrb_define_class_under(mrb, cBar, "Foo", rb_cObject);'
+    eof
+
     expect(Registry.at('Bar::Foo').type).to be :class
   end
 

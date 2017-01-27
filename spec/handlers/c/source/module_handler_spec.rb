@@ -7,7 +7,11 @@ describe YARD::MRuby::Handlers::C::Source::ModuleHandler do
   end
 
   it "should register modules under namespaces" do
-    parse_init 'mFoo = mrb_define_module_under(mrb, mBar, "Foo");'
+    parse_init(<<-eof)
+      cBar = mrb_define_module(mrb,"Bar");
+      cFoo = mrb_define_module_under(mrb, cBar, "Foo");
+    eof
+
     expect(Registry.at('Bar::Foo').type).to be :module
   end
 
